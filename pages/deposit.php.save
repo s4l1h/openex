@@ -1,0 +1,36 @@
+<?php
+require_once("models/jsonRPCClient.php");
+include("models/settings.php");
+	function establishRPCConnection($ip,$port)
+
+	{
+
+		$bitcoin = new jsonRPCClient('http://$db_wallet_user:$db_wallet_password@' . $ip . ':' . $port );
+		return $bitcoin;
+
+	}
+$id = mysql_real_escape_string($_GET["id"]);
+
+
+$sql = mysql_query("SELECT * FROM currencies WHERE `id`='$id'");
+
+$coin = mysql_result($sql,0,"Acronymn");
+
+$ip = mysql_result($sql,0,"ip");
+
+$port = mysql_result($sql,0,"port");
+
+
+
+$bitcoin = establishRPCConnection($ip,$port);
+
+
+
+echo "<h3>Your deposit address is: </h3>";
+
+echo $bitcoin->getblock("0");//->getaccountaddress($loggedInUser->display_username);
+
+
+sdfgdgdfgdfgdfgdfgdf
+
+?>

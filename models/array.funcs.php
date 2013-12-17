@@ -1,0 +1,1 @@
+<?phpfunction strip_tags_recursive( $str, $allowable_tags = NULL ){    if ( is_array( $str ) )    {        $str = array_map( 'strip_tags_recursive', $str, array_fill( 0, count( $str ), $allowable_tags ) );    }    else    {        $str = strip_tags( $str, $allowable_tags );    }    return $str;} ?>

@@ -1,0 +1,53 @@
+.container {	
+	min-height: 400px;
+	border-spacing: 10px;
+}
+
+.first {
+    float: left;
+    width: 20.7%;
+    height: 29%;
+}
+
+.second{
+    float: left;
+    width: 20.7%;
+    height: 69%;
+}
+
+
+.third{
+    float: right;
+    width: 79%;
+    height: 79%;
+	background: url('../img/bigpromo.png') center no-repeat !important;
+}
+
+.fourth {
+    float: right;
+    width: 39.45%;
+    height: 19%;
+}
+
+.last{
+    float: right;
+    width: 39.45%;
+    height: 19%;
+}
+.tiles {
+	display: inline-table;
+    margin: 2.5 px;
+	padding: 2.5 px;
+	border: 1px solid #fff;
+	background: #3B9DD5;
+}
+.tiles:hover {
+	background: #C1E4EC;
+	border: 1px solid #333;
+	animation:
+}
+
+.imtile {
+	height: 70%;
+	width: auto;
+}

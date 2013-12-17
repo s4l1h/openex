@@ -1,0 +1,1 @@
+<?phpecho'<h3>Under construction</h3>';/*create tablecolumns: Name, Volume(in coins), Last Trade, est volume(BTC)	make coin name linked to market.*///include link rel to stylesheet "tables.css" in assets/css directory?>
