@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Dec 18, 2013 at 07:02 AM
+-- Generation Time: Dec 20, 2013 at 04:30 AM
 -- Server version: 5.1.60
 -- PHP Version: 5.5.5
 
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `access_violations` (
   `user_agent` varchar(55) NOT NULL,
   `time` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=721 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
 
 -- --------------------------------------------------------
 
@@ -49,7 +49,20 @@ CREATE TABLE IF NOT EXISTS `balances` (
   `Pending` int(11) NOT NULL,
   `Wallet_ID` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=510 ;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bantables_ip`
+--
+
+CREATE TABLE IF NOT EXISTS `bantables_ip` (
+  `date` text NOT NULL,
+  `ip` varchar(55) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -65,7 +78,7 @@ CREATE TABLE IF NOT EXISTS `deposits` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `Account` text,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=99 ;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -80,7 +93,7 @@ CREATE TABLE IF NOT EXISTS `messages` (
   `banned` tinyint(1) NOT NULL DEFAULT '0',
   `color` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=870 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -112,7 +125,7 @@ CREATE TABLE IF NOT EXISTS `TicketReplies` (
   `posted` text NOT NULL,
   `id` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=95 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -128,7 +141,7 @@ CREATE TABLE IF NOT EXISTS `Tickets` (
   `opened` int(11) DEFAULT '1',
   `body` longblob NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=96 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -148,7 +161,7 @@ CREATE TABLE IF NOT EXISTS `trades` (
   `Fee` text NOT NULL,
   `Total` text NOT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=705 ;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -200,7 +213,7 @@ CREATE TABLE IF NOT EXISTS `userCake_Users` (
   `Shares` int(11) DEFAULT NULL,
   `Banned` int(11) DEFAULT NULL,
   PRIMARY KEY (`User_ID`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=121 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 -- --------------------------------------------------------
 
@@ -249,7 +262,7 @@ CREATE TABLE IF NOT EXISTS `Withdraw_Requests` (
   `Wallet_Id` int(11) NOT NULL,
   `Id` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`Id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -2,6 +2,11 @@
 
 require_once("models/config.php");
 
+
+if(isIPbanned()) {
+	die("ip address is banned.");
+}
+
 //start memcache
 memcache_init();
 
@@ -209,6 +214,7 @@ if(strlen(strstr($agent,"Firefox")) > 0 ){
 				}
 				?>
 				<div class="markets_right">
+					<center><i class="fa fa-bar-chart-o fa-2x" style="color: #fff;">Markets</i></center>
 					<ul id="markets" class="markets">
 					<?php
 						$sqlx = mysql_query("SELECT * FROM Wallets ORDER BY `Acronymn` ASC");

@@ -1,19 +1,19 @@
-<?php	function isUserAdmin($user)	{		$sql = mysql_query("SELECT * FROM userCake_Users WHERE `User_ID`='$user'");		if (mysql_result($sql, 0, "Group_ID") == 9) {			return true;		} else {			return false;		}	}
+<?php	function isUserAdmin($user)	{		$sql94 = mysql_query("SELECT * FROM userCake_Users WHERE `User_ID`='$user'");		if (mysql_result($sql94, 0, "Group_ID") == 9) {			return true;		} else {			return false;		}	}
 	
 	function isUserMod($user)
 	{
-		$sql = mysql_query("SELECT * FROM userCake_Users WHERE `User_ID`='$user'");
-		if (mysql_result($sql, 0, "Group_ID") == 5) {
+		$sql93 = mysql_query("SELECT * FROM userCake_Users WHERE `User_ID`='$user'");
+		if (mysql_result($sql93, 0, "Group_ID") == 5) {
 			return true;
 		} else {
 			return false;
 		}
-	}			function isUserNormal($user)	{		$sql = mysql_query("SELECT * FROM userCake_Users WHERE `User_ID`='$user'");		if (mysql_result($sql, 0, "Group_ID") == 1) {			return true;		} else {			return false;		}	}
+	}		function isUserNormal($user)	{		$sql92 = mysql_query("SELECT * FROM userCake_Users WHERE `User_ID`='$user'");		if (mysql_result($sql92, 0, "Group_ID") == 1) {			return true;		} else {			return false;		}	}
 	
 	function isUserCBanned($user)
 	{
-		$sql = mysql_query("SELECT * FROM userCake_Users WHERE `User_ID`='$user'");
-		if (mysql_result($sql, 0, "ChatBanned") == 1) {
+		$sql91 = mysql_query("SELECT * FROM userCake_Users WHERE `User_ID`='$user'");
+		if (mysql_result($sql91, 0, "ChatBanned") == 1) {
 			return true;
 		} else {
 			return false;

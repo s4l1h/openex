@@ -1,47 +1,34 @@
-
-<META NAME="ROBOTS" CONTENT="NOINDEX, FOLLOW">
-<link rel="icon" type="image/x-icon" href="assets/img/the_eye.ico" />
 <?php
 require_once("models/config.php");
-$account = $loggedInUser->display_username;
-if(strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== FALSE) {
-			$u_agent = mysql_real_escape_string("Internet Explorer");
-		}
-		elseif(strpos($_SERVER['HTTP_USER_AGENT'], 'Chrome') !== FALSE) {
-			$u_agent = mysql_real_escape_string("Google Chrome");
-		}
-		elseif(strpos($_SERVER['HTTP_USER_AGENT'], 'Opera Mini') !== FALSE) {
-			$u_agent = mysql_real_escape_string("Opera Mini");
-		}
-		elseif(strpos($_SERVER['HTTP_USER_AGENT'], 'Opera') !== FALSE) {
-			$u_agent = mysql_real_escape_string("Opera");
-		}
-		elseif(strpos($_SERVER['HTTP_USER_AGENT'], 'Firefox/25.0') == TRUE) {
-			$u_agent = mysql_real_escape_string("Mozilla Firefox");
-		}
-		elseif(strpos($_SERVER['HTTP_USER_AGENT'], 'Safari') !== FALSE) {
-			$u_agent = mysql_real_escape_string("Safari");
-		}
-		else { 
-			$u_agent = mysql_real_escape_string("Unknown");
-		}	
-$ip = mysql_real_escape_string(getIP()); //get user ip
-//show the access denied message no matter what
-echo "<style>html { width:100%; height:100%; background:url(assets/img/access_denied.gif) center center no-repeat; background-color: #00000 !important;}</style>"; 
 
-//check if user is logged in
+$account = $loggedInUser->display_username;
+$uagent = mysql_real_escape_string(getuseragent()); //get user agent
+$ip = mysql_real_escape_string(getIP()); //get user ip
 if(isUserLoggedIn) {
-	//get user info's
 	if ($account != null) {
-		$account = $loggedInUser->display_username;
+		$account = mysql_real_escape_string($loggedInUser->display_username);
 	}
 	else {
 		$account = mysql_real_escape_string("Guest/Not Logged In");
 	}
+}
+$date = mysql_real_escape_string(gettime());
+$sql = @mysql_query("INSERT INTO access_violations (username, ip, user_agent, time) VALUES ('$account', '$ip', '$uagent', '$date');");
+$getcountip = mysql_query("SELECT ip,COUNT(*) as count FROM access_violations GROUP BY ip ORDER BY count DESC;");
+while($row = mysql_fetch_assoc($getcountip)) {
+	if($row['count'] > 10) {
+		$factors = $row['ip'];
+		$sql2 = mysql_query("SELECT ip FROM bantables_ip WHERE ip = '$factors';");
+		$number_of_rows = mysql_num_rows($sql2);
+		
+		if ($number_of_rows > 0) {	
+		}else {
+			$date2 = mysql_real_escape_string(gettime());
+			$ip_address = mysql_real_escape_string($row['ip']);
+			$sqlxz = mysql_query("INSERT INTO bantables_ip (ip, date) VALUES ( '$ip_address', '$date2');");	
+		}
 	}
-//log with mysql
-	$date = date("F j, Y, g:i a");
-	$sql = @mysql_query("INSERT INTO access_violations (username, ip, user_agent, time) VALUES ('$account', '$ip', '$u_agent', '$date');");
-
-	
+}
+echo "<style>html { width:100%; height:100%; background:url(assets/img/access_denied.gif) center center no-repeat; background-color: #00000 !important;}</style>";
+echo '<link rel="icon" type="image/x-icon" href="assets/img/the_eye.ico" />';
 ?>
