@@ -1,0 +1,101 @@
+label, input {
+    /* in order to define widths */
+    display: inline-block;
+	height: 25px;
+	font-size: 21px;
+}
+
+label {
+    width: 30%;
+    /* positions the label text beside the input */
+    text-align: right;
+}
+label + input {
+    width: 30%;
+    /* large margin-right to force the next element to the new-line
+       and margin-left to create a gutter between the label and input */
+    margin: 0 30% 0 4%;
+}
+
+/* only the submit button is matched by this selector,
+   but to be sure you could use an id or class for that button */
+input + input {
+	margin: 0 auto;
+	padding: 1 px;
+	height: 30 px;
+}
+#chart {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: auto;
+	margin-right: auto;
+}
+#boxA {
+	clear:left;
+	float:left;
+	width:100%;
+}
+#boxB {
+	float:left;
+	width:100%;
+	position:relative;
+	right:50%;
+}
+#col1 {
+	float:left;
+	width:46%;
+	position:relative;
+	left:52%;
+	overflow:hidden;
+}
+#sellform {
+	border: 1px solid #FFF;
+	height: 250px;
+	color: #FFF;
+}
+#sellorders {
+	border: 1px solid #FFF;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	height: 250px;
+	color: #FFF;
+}
+#col2 {
+	float:left;
+	width:46%;
+	position:relative;
+	left:56%;
+	overflow:hidden;
+}
+#buyform {
+	border: 1px solid #FFF;
+	height: 250px;
+	color: #FFF;
+}
+
+#buyorders {
+	border: 1px solid #FFF;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	height: 250px;
+	color: #FFF;	
+}
+#user-orders {
+	width: 95.75%;
+}
+.top {
+	text-transform: uppercase;
+	font-weight: bold;
+	padding: 5;
+	font-size: 22px;
+	overflow: hidden;
+	border-bottom: 3px solid #002480;
+}
+.box {
+	border: 1px solid #FFF;
+	color: #FFF;
+	padding:0;
+	overflow-y: scroll;
+	height:200px;
+	width:100%;
+}

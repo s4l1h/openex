@@ -1,0 +1,42 @@
+#page table{
+	border: 1px solid #fff;
+	width: 80%;
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+#page th {
+	background: #005798;
+	border-bottom: 3px solid #002480;
+	font-size: 18px;
+	color: #fff;
+	height: 30px;
+	padding: 5px;
+	margin: 1px;
+}
+
+#page tr {
+	color: #fff;
+	background: #005798;
+	padding: 5px;
+	font-size: 18px;
+	font-weight: bold;
+	border-right: 1px solid #fff;
+	border-left: 1px solid #fff;
+    border-bottom: 3px solid #002480;
+}
+#page tr:hover, #page tr a:hover{
+	color: #fff;
+	background: #005798;
+}
+#page td {
+	
+}
+.fullversion {
+	height: 95% !important;
+}
+#page.b1 {
+	border-right: 1px #333;
+}
+.aboutlist {
+	text-align: left;
+}
