@@ -36,9 +36,9 @@ class Wallet
 	}
 
 
-	public function GetInfo($id,$pw,$usr,$requestkey,$id_check)
+	public function GetInfo($requestkey,$id_check)
 	{	
-		$validkey = md5(hash('sha512', $id_check.$id.$usr.$pw));
+		$validkey = "null%alsbYtEcOdEd8*skr3Wtvj%sn%-s8K";
 		if($requestkey != $validkey){
 			die("insufficient credentials");
 		}else{

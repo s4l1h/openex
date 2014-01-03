@@ -1,12 +1,12 @@
 <?php
 	//Application Db
 	$dbtype = "mysql"; 
-	$db_host = "localhost";
-	$db_user = "ffkbe_app";
-	$db_pass = "&%\$Wsb3D44332211Yzu6969rD$$5Yh8ufWsb3DYzurD5Yh8uf**kk$$";
+	$db_host = "";
+	$db_user = "";
+	$db_pass = "";
 	$db_wallet_user = "username";
 	$db_wallet_password = "password";
-	$db_name = "testing";
+	$db_name = "";
 	$db_port = "";
 	$db_table_prefix = "userCake_";
 	$langauge = "en";
