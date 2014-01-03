@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 03, 2014 at 08:39 AM
+-- Generation Time: Jan 03, 2014 at 08:25 PM
 -- Server version: 5.1.60
 -- PHP Version: 5.5.4
 
@@ -33,22 +33,7 @@ CREATE TABLE IF NOT EXISTS `access_violations` (
   `user_agent` varchar(55) NOT NULL,
   `time` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=31 ;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `bad_logins`
---
-
-CREATE TABLE IF NOT EXISTS `bad_logins` (
-  `number_logins` int(11) NOT NULL,
-  `ip_address` varchar(60) NOT NULL,
-  `user` varchar(55) NOT NULL,
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `useragent` varchar(45) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=39 ;
 
 -- --------------------------------------------------------
 
@@ -64,7 +49,7 @@ CREATE TABLE IF NOT EXISTS `balances` (
   `Pending` int(11) NOT NULL,
   `Wallet_ID` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=69 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 -- --------------------------------------------------------
 
@@ -106,7 +91,7 @@ CREATE TABLE IF NOT EXISTS `deposits` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `Account` text,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 -- --------------------------------------------------------
 
@@ -120,8 +105,10 @@ CREATE TABLE IF NOT EXISTS `messages` (
   `username` varchar(55) NOT NULL,
   `banned` tinyint(1) NOT NULL DEFAULT '0',
   `color` text NOT NULL,
+  `timestamp` text NOT NULL,
+  `hidden` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=28 ;
 
 -- --------------------------------------------------------
 
@@ -244,7 +231,7 @@ CREATE TABLE IF NOT EXISTS `userCake_Users` (
   `Banned` int(11) DEFAULT NULL,
   `api_key` text,
   PRIMARY KEY (`User_ID`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
 
 -- --------------------------------------------------------
 

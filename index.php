@@ -3,7 +3,8 @@
 require_once("models/config.php");
 //browsercheck_index();
 //forceSSL();
-
+$account = $loggedInUser->display_username;
+$id = $loggedInUser->user_id;
 if(isTORnode()){
 	die("Due to legal restrictions users using TOR Browser are not allowed to access this website.");
 }
@@ -21,8 +22,17 @@ if(isMaintenanceDisabled()) {
 	die();
 	}
 }
-$id = $loggedInUser->user_id;
-$account = $loggedInUser->display_username;
+
+//basic bot detection
+echo '<input type="hidden" value="" name="fullname">';
+$is_bot = mysql_real_escape_string($_POST["fullname"]);
+if(isset($_POST["fullname"])) {
+	if($is_bot != "") {
+		echo '<meta http-equiv="refresh" content="0; URL=access_denied.php">';
+	}else{
+	
+	}
+}
 ?>
 <html>
 <head>
@@ -75,6 +85,7 @@ $account = $loggedInUser->display_username;
         $("#contentloader").slideDown(500, function() {
             $('.spinner').fadeOut();
         });
+		
 		
         $("a").click(function(event){
 
@@ -155,6 +166,7 @@ $account = $loggedInUser->display_username;
 			});
 			return false; 
 		});
+
     });
 	$('#message').keypress(function(event){
     var char = String.fromCharCode(event.which)
@@ -163,6 +175,8 @@ $account = $loggedInUser->display_username;
         $(this).val(txt.replace(char, ''));
     }
 	});
+
+
 	</script>
 </head>
 
@@ -189,10 +203,10 @@ $account = $loggedInUser->display_username;
 				';
 				}
 				?>
-				<li><a href="https://openex.mobi" title="mobile sit"><i class="fa fa-mobile"></i></a></li>
-				<li><a href="https://openex.info" title="forums"><i class="fa fa-comments-o"></i></a></li>
-				<li><a href="https://twitter.com/_OpenEx_" title="Follow us on Twitter"><i class="fa fa-twitter"></i></a></li>
-				<li><a href="https://github.com/r3wt/openex.git" title="View source on Github"><i class="fa fa-github"></i></a></li>
+				<!--<li><a href="https://openex.mobi" title="mobile sit"><i class="fa fa-mobile"></i></a></li>
+				<li><a href="https://openex.info" target="_blank" title="forums"><i class="fa fa-comments-o"></i></a></li>-->
+				<li><a class="blank" href="https://twitter.com/_OpenEx_" target="_blank" title="Follow us on Twitter"><i class="fa fa-twitter"></i></a></li>
+				<li><a class="blank" href="https://github.com/r3wt/openex.git" target="_blank" title="View source on Github"><i class="fa fa-github"></i></a></li>
 				<?php
 				if(isUserLoggedIn()){ 
 				echo 

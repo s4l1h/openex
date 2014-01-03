@@ -10,11 +10,8 @@ $id = $loggedInUser->user_id;
 $username = $loggedInUser->display_username;
 //___
 
-if (strlen($_POST['message']) < 5) 
-	{
-	die();
-	}
-else if (isUserCBanned($id)) //eventually we will map this to the error/notification handler to keep users from spamming chat after banned.
+
+if (isUserCBanned($id))
 	{
 	die();
 	}
@@ -36,7 +33,7 @@ else
 	$user = $db->real_escape_string(htmlentities(($username))); 
 	$message = $db->real_escape_string(strip_tags(($_POST['message']), '<a>'));
 
-
-	$db->Query("INSERT INTO messages (color, username, message) VALUES ('$color_','$user','$message')");
+	$timestamp = $db->real_escape_string(gettime());
+	$db->Query("INSERT INTO messages (color, username, message, timestamp) VALUES ('$color_','$user','$message','$timestamp')");
 	}
 ?>
