@@ -11,16 +11,14 @@ if(isTORnode()){
 if(isIPbanned()) {
 	die("ip address is banned.");
 }
-if(isMobile_RedirectDisabled()) {
-}else{
+
+if(isMobile_RedirectDisabled()===FALSE) {
 	mobile_listen();
 }
-if(isMaintenanceDisabled()) {
-}else{
-	if(!isUserAdmin($id)) {
+
+if(isMaintenanceDisabled()===FALSE && isUserAdmin($id)===FALSE) {
 	echo '<meta http-equiv="refresh" content="0; URL='.$maint_url.'">';
 	die();
-	}
 }
 
 //basic bot detection
@@ -288,7 +286,12 @@ if(isset($_POST["fullname"])) {
 					} 
 					else
 					{
-						include("pages/".$_GET["page"].".php");
+						$p="pages/".basename($_GET['page']).".php";
+						if(file_exists($p)){
+							include($p);	
+						}else{
+							exit('Page Not Found');
+						}
 					}
 				?>
 			</center>
